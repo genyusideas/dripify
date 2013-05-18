@@ -1,5 +1,7 @@
 class DripMarketingRule < ActiveRecord::Base
-  attr_accessible :delay, :message
+  attr_accessible :delay, :message, :drip_marketing_campaign_id
+
+  belongs_to :drip_marketing_campaign
 
   validates :delay, presence: true, numericality: { 
     integer: true,

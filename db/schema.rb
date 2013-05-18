@@ -11,14 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518161830) do
+ActiveRecord::Schema.define(:version => 20130518164739) do
+
+  create_table "drip_marketing_campaigns", :force => true do |t|
+    t.boolean  "active",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "drip_marketing_rules", :force => true do |t|
     t.integer  "delay"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "drip_marketing_campaign_id"
   end
+
+  add_index "drip_marketing_rules", ["drip_marketing_campaign_id"], :name => "index_drip_marketing_rules_on_drip_marketing_campaign_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

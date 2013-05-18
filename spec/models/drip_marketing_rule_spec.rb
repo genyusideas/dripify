@@ -9,6 +9,7 @@ describe DripMarketingRule do
 
   it { should respond_to( :delay ) }
   it { should respond_to( :message ) }
+  it { should respond_to( :drip_marketing_campaign ) }
   it { should be_valid }
 
   describe "when delay is not set" do
