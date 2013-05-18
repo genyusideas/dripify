@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518051222) do
+ActiveRecord::Schema.define(:version => 20130518161830) do
+
+  create_table "drip_marketing_rules", :force => true do |t|
+    t.integer  "delay"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
