@@ -16,6 +16,7 @@ describe User do
   it { should respond_to( :email ) }
   it { should respond_to( :first_name ) }
   it { should respond_to( :last_name ) }
+  it { should respond_to( :social_media_accounts ) }
 
   it { should be_valid }
 
@@ -82,5 +83,31 @@ describe User do
     end
 
     it { should_not be_valid }
+  end
+
+  describe "when adding a social media account" do
+    before do
+      @social = @user.social_media_accounts.build do |s|
+        s.handle = 'testuser'
+        s.handle_id = 'testhandleid'
+      end
+    end
+
+    it "should have the account" do
+      @user.social_media_accounts.should == [@social]
+    end
+
+    describe "when adding a second social media account" do
+      before do
+        @social_second = @user.social_media_accounts.build do |s|
+          s.handle = '2ndtestuser'
+          s.handle_id = '2ndtesthandleid'
+        end
+      end
+
+      it "should have both accounts" do
+        @user.social_media_accounts.should == [@social, @social_second]
+      end
+    end
   end
 end
