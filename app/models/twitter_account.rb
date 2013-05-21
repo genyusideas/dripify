@@ -1,0 +1,2 @@
+class TwitterAccount < SocialMediaAccount
+end
