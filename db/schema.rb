@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518170410) do
+ActiveRecord::Schema.define(:version => 20130521074800) do
 
   create_table "drip_marketing_campaigns", :force => true do |t|
-    t.boolean  "active",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "active",                  :default => true
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "social_media_account_id"
   end
+
+  add_index "drip_marketing_campaigns", ["social_media_account_id"], :name => "index_drip_marketing_campaigns_on_social_media_account_id"
 
   create_table "drip_marketing_rules", :force => true do |t|
     t.integer  "delay"
