@@ -17,6 +17,7 @@ describe User do
   it { should respond_to( :first_name ) }
   it { should respond_to( :last_name ) }
   it { should respond_to( :social_media_accounts ) }
+  it { should respond_to( :twitter_accounts ) }
 
   it { should be_valid }
 
@@ -107,6 +108,32 @@ describe User do
 
       it "should have both accounts" do
         @user.social_media_accounts.should == [@social, @social_second]
+      end
+    end
+  end
+
+  describe "when adding a twitter account" do
+    before do
+      @twitter = @user.twitter_accounts.build do |t|
+        t.handle = 'testuser'
+        t.handle_id = 'testhandleid'
+      end
+    end
+
+    it "should have the account" do
+      @user.twitter_accounts.should == [@twitter]
+    end
+
+    describe "when adding a second twitter media account" do
+      before do
+        @twitter_second = @user.twitter_accounts.build do |s|
+          s.handle = '2ndtestuser'
+          s.handle_id = '2ndtesthandleid'
+        end
+      end
+
+      it "should have both accounts" do
+        @user.twitter_accounts.should == [@twitter, @twitter_second]
       end
     end
   end
