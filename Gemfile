@@ -7,6 +7,12 @@ gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'factory_girl_rails', '4.1.0'
+  gem 'faker'
 end
 
 
