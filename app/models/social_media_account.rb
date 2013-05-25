@@ -8,4 +8,6 @@ class SocialMediaAccount < ActiveRecord::Base
 
   validates :handle, presence: true, length: { maximum: 256 }
   validates :handle_id, presence: true, uniqueness: true, length: { maximum: 256 }
+
+  default_scope order: 'social_media_accounts.handle ASC'
 end

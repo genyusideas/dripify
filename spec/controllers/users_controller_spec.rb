@@ -10,7 +10,7 @@ describe UsersController do
       @body = JSON.parse(response.body)
     end
 
-    it "returns the correct user" do
+    it "returns successfully" do
       response.should be_success
     end
 
@@ -27,7 +27,7 @@ describe UsersController do
 
   describe "when requesting a user that doesn't exist" do
     before do
-      id = User.last.id unless User.all.empty?
+      id = User.last.id + 1 unless User.all.empty?
       id = 1 if User.all.empty?
       get :show, id: id, format: :json
       @body = JSON.parse(response.body)
