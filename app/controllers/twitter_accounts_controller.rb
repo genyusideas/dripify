@@ -28,6 +28,33 @@ class TwitterAccountsController < ApplicationController
     end
   end
 
+  # POST /users/:user_id/twitter_accounts
+  def create
+    unless @owner.nil?
+      @twitter_account = @owner.twitter_accounts.build( params[:twitter_account] )
+      if @twitter_account.save
+        render json: @twitter_account
+      else
+        render json: { error: "Error saving account" }, status: 500
+      end
+    else
+      render json: { error: "User not found" }, status: 403
+    end
+  end
+
+  # DELETE /users/:user_id/twitter_accounts/:id
+  def destroy
+    unless @owner.nil?
+      begin
+        render json: @owner.twitter_accounts.destroy( params[:id] )
+      rescue
+        render json: { error: "Twitter account does not exist" }, status: 403
+      end
+    else
+      render json: { error: "User not found" }, status: 403
+    end
+  end
+
   private
 
     def find_owner

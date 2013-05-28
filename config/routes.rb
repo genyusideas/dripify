@@ -4,7 +4,7 @@ Dripify::Application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resources :twitter_accounts, only: [:index, :show]
+    resources :twitter_accounts, only: [:index, :show, :create, :destroy]
   end
 
   root to: "static_pages#home"
