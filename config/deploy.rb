@@ -25,4 +25,4 @@ ssh_options[:forward_agent] = true
 set :branch, "master"
 
 # Use remote caching
-set :deploy_via, :remote_cache
+# set :deploy_via, :remote_cache
