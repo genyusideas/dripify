@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 gem 'pg', '0.15.1'
 gem 'devise', '2.2.4'
 gem 'bootstrap-sass'
+gem 'capistrano', '2.15.4'
+gem 'rvm-capistrano', '1.3.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
