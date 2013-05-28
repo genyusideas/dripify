@@ -7,6 +7,8 @@ set :repository,  "git@github.com:genyusideas/dripify.git"
 
 set :scm, :git
 
+set :deploy_to, "~/DripifyApi"
+
 role :web, "54.215.0.45"                          
 role :app, "54.215.0.45"                          
 role :db,  "54.215.0.45", :primary => true
