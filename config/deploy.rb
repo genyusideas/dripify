@@ -16,6 +16,10 @@ set :deploy_via, :copy
 
 set :use_sudo, true
 
+role :web, "54.215.0.45"                          
+role :app, "54.215.0.45"                          
+role :db,  "54.215.0.45", :primary => true
+
 set :scm_username, "jmataya"
 default_run_options[:pty] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "drippio-prod.pem")]
@@ -34,7 +38,8 @@ end
 
 namespace :deploy do
   task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/nginx.conf /opt/nginx/sites-enabled/#{application}"
+    sudo "chown -R #{user} #{deploy_to}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.yml.example"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."

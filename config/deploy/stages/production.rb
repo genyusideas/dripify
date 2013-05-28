@@ -1,7 +1,3 @@
-role :web, "54.215.0.45"                          
-role :app, "54.215.0.45"                          
-role :db,  "54.215.0.45", :primary => true
-
 set :stage, 'production'
 set :rails_env, 'production'
 set :app_env, 'production'
