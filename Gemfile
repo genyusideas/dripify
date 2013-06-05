@@ -6,10 +6,12 @@ gem 'devise', '2.2.4'
 gem 'bootstrap-sass'
 gem 'capistrano', '2.15.4'
 gem 'rvm-capistrano', '1.3.0'
+gem 'rack-cors', require: "rack/cors"
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
   gem 'capybara'
+  gem 'puma'
 end
 
 group :test do
