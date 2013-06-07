@@ -6,6 +6,7 @@ Dripify::Application.routes.draw do
   devise_for(:users, controllers:{ sessions: "sessions" })
 
   resources :users, only: [:show] do
+    collection { get 'get_current_user' }
     resources :twitter_accounts, only: [:index, :show, :create, :destroy]
   end
 
