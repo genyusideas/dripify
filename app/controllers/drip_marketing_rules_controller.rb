@@ -29,6 +29,24 @@ class DripMarketingRulesController < ApplicationController
     end
   end
 
+  # PUT /users/:user_id/twitter_accounts/:twitter_account_id/drip_marketing_campaigns/:drip_marketing_campaign_id/drip_marketing_rules/:id
+  def update
+    unless @owner.nil?
+      @drip_marketing_rule = @owner.drip_marketing_rules.find( params[:id] )
+      unless @drip_marketing_rule.nil?
+        if @drip_marketing_rule.update_attributes params[:drip_marketing_rule]
+          render json: @drip_marketing_rule
+        else
+          render json: { error: "Error updating the rule" }, status: 500
+        end
+      else
+        render json: { error: "Rule not found" }, status: 403
+      end
+    else
+      render json: { error: "User not found" }, status: 403
+    end
+  end
+
   private
 
   def find_owner

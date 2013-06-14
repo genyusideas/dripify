@@ -7,7 +7,7 @@ Dripify::Application.routes.draw do
     collection { get 'get_current_user' }
     resources :twitter_accounts, only: [:index, :show, :create, :destroy] do
       resources :drip_marketing_campaigns, only: [:index, :show, :create] do
-        resources :drip_marketing_rules, only: [:index, :create]
+        resources :drip_marketing_rules, only: [:index, :create, :update]
       end
     end
   end

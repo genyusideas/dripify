@@ -91,4 +91,32 @@ describe DripMarketingRulesController do
       end
     end
   end
+
+  describe "update behavior" do
+    describe "when modifying an existing account" do
+      before do
+        drip_marketing_rule.message = "NEW CHANGE"
+        put :update,
+          user_id: user.id,
+          twitter_account_id: twitter.id,
+          drip_marketing_campaign_id: drip_campaign.id,
+          id: drip_marketing_rule.id,
+          drip_marketing_rule: { delay: drip_marketing_rule.delay, message: drip_marketing_rule.message, id: drip_marketing_rule.id },
+          format: :json
+        @body = JSON.parse(response.body)
+      end
+
+      it "returns successfully" do
+        response.status.should == 200
+      end
+
+      it "should return the rule in the correct format" do
+        @body.should include('id')
+      end
+
+      it "should have the content updated" do
+        @body['message'].should == drip_marketing_rule.message
+      end
+    end
+  end
 end
