@@ -1,0 +1,74 @@
+body {
+  background: url("../vendor/img/sec_2.png") repeat; }
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em; }
+
+.menu:before {
+  content: "["; }
+
+.menu:after {
+  content: "]"; }
+
+.menu > li {
+  display: inline; }
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em; }
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0; }
+
+.account-strip {
+  padding: 0px 20px; }
+  .account-strip ul {
+    list-style: none;
+    display: block;
+    margin: 0; }
+    .account-strip ul li {
+      min-width: 125px;
+      display: inline-block;
+      padding: 15px; }
+      .account-strip ul li img.profile {
+        border: 2px solid #fff;
+        height: 24px;
+        width: 24px;
+        margin-right: 5px; }
+      .account-strip ul li.selected a {
+        color: #fff; }
+      .account-strip ul li.unselected {
+        background: transparent; }
+        .account-strip ul li.unselected a {
+          color: #797979; }
+        .account-strip ul li.unselected:hover {
+          background: #0192dd; }
+          .account-strip ul li.unselected:hover a {
+            color: #fff; }
+      .account-strip ul li.add-account {
+        padding: 17px 15px 22px;
+        background: transparent; }
+        .account-strip ul li.add-account a, .account-strip ul li.add-account i {
+          color: #797979; }
+        .account-strip ul li.add-account i {
+          margin-right: 5px;
+          font-size: 18px; }
+        .account-strip ul li.add-account:hover {
+          background: #0192dd; }
+          .account-strip ul li.add-account:hover a, .account-strip ul li.add-account:hover i {
+            color: #fff; }
+
+.page-body.sec_3 {
+  border-top: none;
+  border-bottom: none;
+  padding-top: 30px; }
+  .page-body.sec_3 .action-selector {
+    padding-bottom: 30px; }
+    .page-body.sec_3 .action-selector .span4 {
+      text-align: center; }
+  .page-body.sec_3 .action-content .span4.offset4 {
+    text-align: center; }
