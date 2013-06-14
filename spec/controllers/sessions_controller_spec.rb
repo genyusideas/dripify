@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SessionsControllerController do
+describe SessionsController do
 
   describe "GET 'create'" do
     it "returns http success" do
