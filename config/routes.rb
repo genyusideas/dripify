@@ -1,7 +1,7 @@
 Dripify::Application.routes.draw do
   
   # devise_for :users
-  devise_for(:users, controllers:{ sessions: "sessions" })
+  devise_for(:users, controllers:{ sessions: "sessions", registrations: "registrations" })
 
   resources :users, only: [:show] do
     collection { get 'get_current_user' }
