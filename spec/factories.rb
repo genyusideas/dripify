@@ -11,4 +11,9 @@ FactoryGirl.define do
     sequence(:handle)     { |n| "test_handle_#{n}" }
     sequence(:handle_id)  { |n| "test_handle_#{n}" }
   end 
+
+  factory :drip_marketing_rule do
+    delay                 1
+    message               "Test message"
+  end
 end

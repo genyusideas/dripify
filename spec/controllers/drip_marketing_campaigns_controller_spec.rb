@@ -149,24 +149,26 @@ describe DripMarketingCampaignsController do
     end
   end
 
-  describe "when adding a new campaign" do
-    let(:campaign_to_create) { DripMarketingCampaign.new }
-    before do
-      post :create,
-        user_id: user.id,
-        twitter_account_id: twitter.id,
-        format: :json
-    end
-
+  describe "create behavior" do
     describe "when adding a new campaign" do
-      before { @body = JSON.parse(response.body) }
-
-      it "returns successfully" do
-        response.status.should == 200
+      let(:campaign_to_create) { DripMarketingCampaign.new }
+      before do
+        post :create,
+          user_id: user.id,
+          twitter_account_id: twitter.id,
+          format: :json
       end
 
-      it "should return the account in the correct format" do
-        @body.should include('id')
+      describe "when adding a new campaign" do
+        before { @body = JSON.parse(response.body) }
+
+        it "returns successfully" do
+          response.status.should == 200
+        end
+
+        it "should return the account in the correct format" do
+          @body.should include('id')
+        end
       end
     end
   end
