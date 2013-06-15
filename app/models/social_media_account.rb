@@ -1,5 +1,5 @@
 class SocialMediaAccount < ActiveRecord::Base
-  attr_accessible :handle, :handle_id, :type, :user_id
+  attr_accessible :handle, :handle_id, :type, :user_id, :secret, :token, :profile_picture_url
 
   belongs_to :user
   has_many :drip_marketing_campaigns
@@ -8,6 +8,8 @@ class SocialMediaAccount < ActiveRecord::Base
 
   validates :handle, presence: true, length: { maximum: 256 }
   validates :handle_id, presence: true, uniqueness: true, length: { maximum: 256 }
+  validates :token, presence: true
+  validates :secret, presence: true
 
   default_scope order: 'social_media_accounts.handle ASC'
 end

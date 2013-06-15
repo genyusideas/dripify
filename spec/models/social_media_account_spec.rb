@@ -5,6 +5,8 @@ describe SocialMediaAccount do
     @social = SocialMediaAccount.new do |s|
       s.handle = "thebigmatay"
       s.handle_id = "thebigmatay_id"
+      s.token = "test"
+      s.secret = "secret"
     end
   end
 
@@ -18,6 +20,9 @@ describe SocialMediaAccount do
   it { should respond_to( :drip_marketing_campaigns ) }
   it { should respond_to( :active_drip_marketing_campaign ) }
   it { should respond_to( :inactive_drip_marketing_campaigns ) }
+  it { should respond_to( :profile_image_url ) }
+  it { should respond_to( :token ) }
+  it { should respond_to( :secret ) }
   it { should be_valid }
 
   describe "when handle is not set" do
@@ -50,11 +55,23 @@ describe SocialMediaAccount do
     it { should be_valid }
   end
 
+  describe "when token is not set" do
+    before { @social.token = ' ' }
+    it { should_not be_valid }
+  end
+
+  describe "when secret is not set" do
+    before { @social.secret = ' ' }
+    it { should_not be_valid }
+  end
+
   describe "when a duplicate handle id is created" do
     before do
       @duplicate = SocialMediaAccount.new do |d|
         d.handle = 'duplicate'
         d.handle_id = @social.handle_id
+        d.secret = 'fake'
+        d.token = 'fake'
       end
       @duplicate.save
     end

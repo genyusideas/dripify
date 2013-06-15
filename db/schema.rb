@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530100711) do
+ActiveRecord::Schema.define(:version => 20130615072050) do
 
   create_table "drip_marketing_campaigns", :force => true do |t|
     t.boolean  "active",                  :default => true
@@ -37,8 +37,11 @@ ActiveRecord::Schema.define(:version => 20130530100711) do
     t.string   "handle"
     t.string   "handle_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "token"
+    t.string   "secret"
+    t.string   "profile_image_url"
   end
 
   add_index "social_media_accounts", ["handle_id"], :name => "index_social_media_accounts_on_handle_id", :unique => true
