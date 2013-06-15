@@ -7,6 +7,9 @@ gem 'bootstrap-sass'
 gem 'capistrano', '2.15.4'
 gem 'rvm-capistrano', '1.3.0'
 gem 'rack-cors', require: "rack/cors"
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
@@ -18,7 +21,6 @@ group :test do
   gem 'factory_girl_rails', '4.1.0'
   gem 'faker'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.

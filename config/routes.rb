@@ -12,5 +12,7 @@ Dripify::Application.routes.draw do
     end
   end
 
+  match 'auth/twitter/callback', to: 'omniauthorize#create'
+
   root to: "static_pages#home"
 end
