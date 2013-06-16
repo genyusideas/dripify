@@ -1,5 +1,5 @@
 class SocialMediaAccount < ActiveRecord::Base
-  attr_accessible :handle, :handle_id, :type, :user_id, :secret, :token, :profile_picture_url
+  attr_accessible :handle, :handle_id, :type, :user_id, :secret, :token, :profile_image_url
 
   belongs_to :user
   has_many :drip_marketing_campaigns
