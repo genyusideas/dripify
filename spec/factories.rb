@@ -7,6 +7,13 @@ FactoryGirl.define do
     password_confirmation "foobar81"
   end
 
+  factory :social_media_account do
+    sequence(:handle)     { |n| "test_handle_#{n}" }
+    sequence(:handle_id)  { |n| "test_handle_#{n}" }
+    token                 "Token"
+    secret                "secret"
+  end
+
   factory :twitter_account do
     sequence(:handle)     { |n| "test_handle_#{n}" }
     sequence(:handle_id)  { |n| "test_handle_#{n}" }

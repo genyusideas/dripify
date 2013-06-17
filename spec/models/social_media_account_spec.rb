@@ -23,6 +23,9 @@ describe SocialMediaAccount do
   it { should respond_to( :profile_image_url ) }
   it { should respond_to( :token ) }
   it { should respond_to( :secret ) }
+  it { should respond_to( :friend_relationships ) }
+  it { should respond_to( :followed_accounts ) }
+  it { should respond_to( :follower_accounts ) }
   it { should be_valid }
 
   describe "when handle is not set" do
@@ -118,6 +121,21 @@ describe SocialMediaAccount do
           @social.inactive_drip_marketing_campaigns.should == [@campaign_two]
         end
       end
+    end
+  end
+
+  describe "when adding a follower" do
+    let( :followed ) { FactoryGirl.create( :social_media_account ) }
+    before do
+      @social.friend_relationships.build( followed_id: followed.id )
+    end
+
+    it "should have the account in the followed queue" do
+      @social.followed_accounts.should == [followed]
+    end
+
+    it "should be a follower of the other account" do
+      followed.follower_accounts.should == [@social]
     end
   end
 end
