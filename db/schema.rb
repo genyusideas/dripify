@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615072050) do
+ActiveRecord::Schema.define(:version => 20130617043907) do
 
   create_table "drip_marketing_campaigns", :force => true do |t|
     t.boolean  "active",                  :default => true
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20130615072050) do
   end
 
   add_index "drip_marketing_rules", ["drip_marketing_campaign_id"], :name => "index_drip_marketing_rules_on_drip_marketing_campaign_id"
+
+  create_table "friend_relationships", :force => true do |t|
+    t.integer  "followed_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "social_media_accounts", :force => true do |t|
     t.string   "type"

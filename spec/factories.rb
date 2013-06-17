@@ -10,6 +10,8 @@ FactoryGirl.define do
   factory :twitter_account do
     sequence(:handle)     { |n| "test_handle_#{n}" }
     sequence(:handle_id)  { |n| "test_handle_#{n}" }
+    token                 "Token"
+    secret                "secret"
   end 
 
   factory :drip_marketing_rule do
