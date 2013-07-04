@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="Drippio">
 <head>
-  <title>Dripify</title>
+  <title>Dripp.io</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,35 +11,10 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-<body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-        <nav>
-          <span class="logo nav">
-            <%= link_to "Dripify", root_path, id: "logo" %>
-          </span>
-          <ul class="nav pull-right">
-            <% if user_signed_in? %>
-              <li><span>Welcome, <%= current_user.email %></span></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-            <% else %>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <div class="container">
-    <div class="messages">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
-    <%= yield %>
-  </div>
+<body ng-controller="DrippioController">
+  <header ng-include src="partials.nav"></header>
+  <div ng-view></div>
+  <!--<In>production use</In><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>-->
 </body>
 </html>
 

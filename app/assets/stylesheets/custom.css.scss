@@ -1,28 +1,108 @@
-@import "bootstrap";
 
-.navbar {
-  .navbar-inner {
-    .container {
-      .logo {
-        margin-top: 10px;
+body {
+  background: url("sec_2.png") repeat;
+}
+
+.typo_top {
+  background: url("bg_typo.png") repeat;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.account-strip {
+  padding: 0px 20px;
+  ul {
+    list-style: none;
+    display: block;
+    margin: 0;
+    li {
+      min-width: 125px;
+      display: inline-block;
+      padding: 15px;
+      img.profile {
+        border: 2px solid #fff;
+        height: 24px;
+        width: 24px;
+        margin-right: 5px;
+      }
+      &.selected {
         a {
-          color: #999999;
-          font-size: 1.5em;
+          color: #fff;
         }
       }
-      nav {
-        ul {
-          li {
-            span {
-              padding: 10px 15px 10px;
-              float: none;
-              display: block;
-              color: #999999;
-              text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-            }
+      &.unselected {
+        background: transparent;
+        a {
+          color: #797979;
+        }
+        &:hover {
+          background: #0192dd;
+          a {
+            color: #fff;
           }
         }
       }
+      &.add-account {
+        padding: 17px 15px 22px;
+        background: transparent;
+        a, i {
+          color: #797979;
+        }
+        i {
+          margin-right: 5px;
+          font-size: 18px;
+        }
+        &:hover {
+          background: #0192dd;
+          a, i {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-body.sec_3 {
+  border-top: none;
+  border-bottom: none;
+  padding-top: 30px;
+  .action-selector {
+    padding-bottom: 30px;
+    .span4 {
+      text-align: center;
+    }
+  }
+  .action-content {
+    .span4.offset4 {
+      text-align: center;
     }
   }
 }
