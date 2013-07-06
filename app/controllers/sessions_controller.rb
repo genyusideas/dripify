@@ -21,6 +21,6 @@ class SessionsController < Devise::SessionsController
 
   def invalid_login_attempt
     warden.custom_failure!
-    render json: { errors: ["Invalid email or password."] }, success: false, status: 422
+    render json: { errors: ["Invalid email or password."] }, success: true, status: :ok
   end
 end

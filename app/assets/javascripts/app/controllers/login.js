@@ -7,6 +7,7 @@ function LoginController($scope, $rootScope, $location, $http, Config, User, Aut
   }
 
   $scope.login = function() {
+    $scope.isLoginError = false;
     var payload = {
       email: $scope.username,
       password: $scope.password,
