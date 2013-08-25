@@ -1,27 +1,91 @@
-.panel-heading.twitter-accounts {
-  border-bottom: none;
-}
-.panel-body.twitter-accounts {
-  padding: 0;
-  .accounts-column {
-    border-right: 1px solid #ddd;
-    width: 250px;
-    .list-group {
-      border-radius: 0;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 0;
-      box-shadow: none;
-      border: none;
-      a {
-        &.list-group-item {
-          border: none;
-          &:first-child {
-            border-top-right-radius: 0px;
-            border-top-left-radius: 0px;
+.panel.panel-default.twitter {
+  min-height: 300px;
+  .panel-heading.twitter-accounts {
+    border-bottom: none;
+  }
+  .panel-body.twitter-accounts {
+    padding: 0;
+    .accounts-column {
+      border-right: 1px solid #ddd;
+      float: left;
+      min-height: 250px;
+      width: 250px;
+      .list-group {
+        border-radius: 0;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0;
+        box-shadow: none;
+        border: none;
+        a {
+          &.list-group-item {
+            border: none;
+            &:first-child {
+              border-top-right-radius: 0px;
+              border-top-left-radius: 0px;
+            }
+            h4 { 
+              display: inline-block;
+              margin-top: 13px;
+              padding-left: 10px;
+            }
           }
-          h4 { 
+        }
+      }
+    }
+    .content-column {
+      margin-left: 251px;
+      .main-content {
+        h3 {
+          padding-left: 10px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        .add-message {
+          a {
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+        }
+        .drips {
+          .header {
+            font-weight: 700;
+            height: 54px;
+          }
+          .content {
+            .drips {
+              border-top: 1px solid #ddd;
+              height: 54px;
+            }
+
+            .drips:nth-child(odd) {
+              background-color: #f9f9f9;
+            }
+          }
+          .delay, .message, .controls {
             display: inline-block;
-            margin-top: 13px;
+          }
+          .delay, .message {
+            padding-top: 19px;
+          }
+          .delay {
+            padding-left: 10px;
+            width: 75px;
+          }
+          .controls { 
+            float: right;
+            width: 120px;
+            padding-top: 13px;
+            a {
+              display: inline-block;
+              &.drip-edit {
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+        table {
+          .edit, .delete {
+            width: 50px;
           }
         }
       }

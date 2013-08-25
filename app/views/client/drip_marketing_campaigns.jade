@@ -2,8 +2,9 @@
   .container
     .row
       .span12
-        .panel.panel-default
-          .panel-heading.twitter-accounts Panel heading
+        .panel.panel-default.twitter
+          .panel-heading.twitter-accounts
+            a.btn.btn-primary(href="{{add_account_url}}", target="_blank") Add Twitter Account
           .panel-body.twitter-accounts
             .accounts-column
               .list-group
@@ -11,11 +12,23 @@
                   a.list-group-item(ng-class="{true: 'active', false: ''}[twitter_account.name==selected_account.name] ", href="#")
                     img.img-circle.profile(ng-src='{{twitter_account.profile_image}}')
                     h4 {{twitter_account.name}}
-                a.list-group-item(href="{{add_account_url}}", target="_blank")
-                  h4 Add Twitter Account
-
-
-
+            .content-column
+              .main-content(ng-hide="selected_account==''")
+                .add-message
+                  a.btn.btn-primary(href="#") Add new message
+                h3 Auto-responders 
+                .drips
+                  .header
+                    .delay Delay
+                    .message Message
+                    .controls
+                  .content
+                    .drips(ng-repeat="drip in drips", class)
+                      .delay {{drip.delay}}
+                      .message {{drip.message}}
+                      .controls
+                        a.btn.drip-edit(href="#") Edit
+                        a.btn.btn-danger.drip-delete(href="#") Delete
 
 
 .container.page-body.sec_3(ng-hide="selected_account==''")

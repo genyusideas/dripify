@@ -42,8 +42,12 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
             },
             function( rules ) {
               if ( rules && rules.length > 0 ) {
+                console.log("HELLO")
                 var k = 0;
                 for ( k = 0; k < rules.length; k++ ) {
+                  console.log("ID = " + rules[k].id);
+                  console.log("DELAY = " +rules[k].delay);
+                  console.log("MESSAGE = " + rules[k].message);
                   var drip = {
                     id: rules[k].id,
                     delay: rules[k].delay,
