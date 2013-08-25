@@ -1,0 +1,23 @@
+.typo_top
+  .signin_sec
+    h2 dripp.io
+  .signin_inner
+    p Signup now for Dripp.io!
+    form(ng-submit="signup()")
+      input.span3(ng-model="username", type="text", placeholder="Email")
+      input.span3(ng-model="password", type="password", placeholder="Password")
+      input.span3(ng-model="confirm_password", type="password", placeholder="Confirm Password")
+      input.span3(ng-model="first_name", type="text", placeholder="First name")
+      input.span3(ng-model="last_name", type="text", placeholder="Last name")
+      button.medium.signin.button.radius(type="submit", style="width:283px;") Sign up
+    hr
+    p
+      a(ng-href="/login") Already a member? Login now!
+.footer_sec
+  footer
+    .container
+      p
+        | &copy; 2013 Dripp.io 
+        span.pull-right 
+          | Go back 
+          a(href="index.htm") Home &raquo;

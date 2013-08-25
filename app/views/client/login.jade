@@ -1,0 +1,21 @@
+.typo_top
+  .signin_sec
+    h2 dripp.io
+  .signin_inner
+    form(ng-submit="login()")
+      input.span3(ng-model="username", type="text", placeholder="Email")
+      input.span3(ng-model="password", type="password", placeholder="Password")
+      button.medium.signin.button.radius(type="submit", style="width:283px;") Sign in
+    hr
+    p
+      a(href="#") Forgot your password?
+      span.pull-right 
+        a(href="#") Sign up
+.footer_sec
+  footer
+    .container
+      p
+        | &copy; 2013 Dripp.io 
+        span.pull-right 
+          | Go back 
+          a(href="index.htm") Home &raquo;

@@ -1,0 +1,17 @@
+.navbar.navbar-fixed-top(ng-controller='NavigationController')
+  .navbar-inner
+    .container
+      a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand(ng-href="{{rootUrl}}") dripp.io
+      .nav-collapse
+        ul
+          .nav.pull-right
+            li
+              .btn-group
+                a(ng-href="{{authItem.href}}", class="{{authItem.class}}") {{authItem.linkText}}
+          .nav.pull-right(ng-repeat="navItem in navItems")
+            li
+              a(ng-href="{{navItem.href}}", class="{{navItem.class}}") {{navItem.linkText}}

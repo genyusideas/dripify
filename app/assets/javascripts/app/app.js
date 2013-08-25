@@ -52,12 +52,12 @@ angular.module('Drippio', ['Drippio.filters', 'Drippio.services', 'Drippio.direc
     }];
     $httpProvider.responseInterceptors.push( interceptor );
     $routeProvider.
-      when('/login', { templateUrl: '/assets/app/views/login.html', controller: 'LoginController' }).
-      when('/logout', { templateUrl: '/assets/app/views/logout.html', controller: 'LogoutController' }).
-      when('/signup', { templateUrl: '/assets/app/views/signup.html', controller: 'SignupController' }).
-      when('/plans', { templateUrl: '/assets/app/views/plans.html' }).
+      when('/login', { templateUrl: '/assets/app/views/client/login.html', controller: 'LoginController' }).
+      when('/logout', { templateUrl: '/assets/app/views/client/logout.html', controller: 'LogoutController' }).
+      when('/signup', { templateUrl: '/assets/app/views/client/signup.html', controller: 'SignupController' }).
+      when('/plans', { templateUrl: '/assets/app/views/client/plans.html' }).
       when('/drip_marketing_campaigns', { 
-        templateUrl: '/assets/app/views/drip_marketing_campaigns.html', 
+        templateUrl: '/assets/app/views/client/drip_marketing_campaigns.html', 
         controller: 'DripMarketingCampaignsController' 
       }).
       otherwise({ redirectTo: '/login' });
@@ -66,8 +66,8 @@ angular.module('Drippio', ['Drippio.filters', 'Drippio.services', 'Drippio.direc
 window.DrippioController = ['$scope', 'Auth', '$rootScope', '$location',
   function DrippioController($scope, Auth, $rootScope, $location) {
     $scope.partials = {
-      nav: '/assets/app/views/navigation.html',
-      footer: '/assets/app/views/footer.html'
+      nav: '/assets/app/views/client/navigation.html',
+      footer: '/assets/app/views/client/footer.html'
     }
   }
 ]
