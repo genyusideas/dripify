@@ -9,7 +9,7 @@
               .list-group
                 span(ng-repeat="twitter_account in twitter_accounts")
                   a.list-group-item(ng-class="{true: 'active', false: ''}[twitter_account.name==selected_account.name] ", href="#")
-                    img.profile(ng-src='{{twitter_account.profile_image}}')
+                    img.img-circle.profile(ng-src='{{twitter_account.profile_image}}')
                     h4 {{twitter_account.name}}
                 a.list-group-item(href="{{add_account_url}}", target="_blank")
                   h4 Add Twitter Account

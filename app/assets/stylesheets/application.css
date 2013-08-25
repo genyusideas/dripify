@@ -12,5 +12,6 @@
  *= require neet
  *= require custom_style
  *= require_self
+ *= require bootstrap
  *= require_tree .
  */
