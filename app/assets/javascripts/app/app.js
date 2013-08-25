@@ -52,6 +52,7 @@ angular.module('Drippio', ['Drippio.filters', 'Drippio.services', 'Drippio.direc
     }];
     $httpProvider.responseInterceptors.push( interceptor );
     $routeProvider.
+      when('/home', { templateUrl: '/assets/app/views/client/home.html', controller: 'HomeController' }).
       when('/login', { templateUrl: '/assets/app/views/client/login.html', controller: 'LoginController' }).
       when('/logout', { templateUrl: '/assets/app/views/client/logout.html', controller: 'LogoutController' }).
       when('/signup', { templateUrl: '/assets/app/views/client/signup.html', controller: 'SignupController' }).

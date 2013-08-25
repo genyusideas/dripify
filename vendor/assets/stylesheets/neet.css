@@ -86,6 +86,13 @@ font-family: 'Open Sans', sans-serif;
   /* Sizes ---------- */
   .small.button       { font-size: 11px; padding: 8px 20px 10px; width: auto; }
   .medium.button       { font-size: 13px; width: auto; }
+  .bigger.button       { 
+    padding: 11px 35px 13px;
+    font-size: 16px;
+    line-height: 1;
+    border: 1px solid #48A865;
+    text-decoration: none;
+ }
   .large.button       { font-size: 26px; padding: 21px 58px 23px; width: auto; }
 
   /* Nice Sizes ---------- */
@@ -94,8 +101,9 @@ font-family: 'Open Sans', sans-serif;
 
   /* Colors ---------- */
   .blue.button      { background-color: #46BEF9;  }
-  .red.button        { background-color: #EB4F38; }
-  .white.button      {border:1px solid  #E9E9E9; background:#E9E9E9;
+  .green.button     { background-color: #7cc576;  }
+  .red.button       { background-color: #EB4F38; }
+  .white.button     {border:1px solid  #E9E9E9; background:#E9E9E9;
  color: #333; }
   .black.button      { background-color: #141414; }
 
@@ -105,6 +113,7 @@ font-family: 'Open Sans', sans-serif;
 
   /* Nice Colors ---------- */
   .nice.blue.button    { border: 1px solid #0593dc;  }
+  .nice.green.button    { border: 1px solid #7cc576;  }
   .nice.red.button    { border: 1px solid #b90b0b;  }
   .nice.white.button    { border: 1px solid #cacaca; text-shadow: none !important; }
   .nice.black.button    { border: 1px solid #000; }
@@ -114,6 +123,7 @@ font-family: 'Open Sans', sans-serif;
 
   /* Hovers ---------- */
   .button:hover, .button:focus         { background-color: #0192dd; color: #fff; }
+  .green.button:hover, .green.button:focus    { background-color: #48A865;   }
   .blue.button:hover, .blue.button:focus    { background-color: #64C8FA;   }
   .red.button:hover, .red.button:focus     { background-color: #EF7261;   }
   .white.button:hover, .white.button:focus  { background-color: #E5E5E5; color: #333; }
@@ -248,5 +258,5 @@ width:300px;}
                     .contact_form form  textarea  {resize:none; font-size:16px; padding:10px;}
 
 
-        .footer_sec  {display:block; margin-top:40px; height:60px; border-top:1px solid #E6E6E6; background:#F0F0F0; font-family: 'Open Sans', sans-serif;}
-        .footer_sec p {   padding:20px; font-size:11px;  }
+        .footer_sec  {display:block; margin-top: 30px; height: 56px; border-top: 1px solid #f7f7f7; background:#F0F0F0; }
+        .footer_sec p {   padding:20px; font-size:11px;     margin: 0;}
