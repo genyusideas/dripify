@@ -15,7 +15,8 @@
             .content-column
               .main-content(ng-hide="selected_account==''")
                 .add-message
-                  a.btn.btn-primary(href="#") Add new message
+                  button.btn.btn-primary(type="button", data-toggle="modal", data-target="#addDripModal")
+                    | Add new message
                 h3 Auto-responders 
                 .drips
                   .header
@@ -29,29 +30,4 @@
                       .controls
                         a.btn.drip-edit(href="#") Edit
                         a.btn.btn-danger.drip-delete(href="#") Delete
-
-
-.container.page-body.sec_3(ng-hide="selected_account==''")
-  .row.action-selector
-    .span4
-      a.red.large.radius.button(ng-click='clickSprinkle()') Sprinkle
-    .span4
-      a.red.large.radius.button(ng-click='clickDownpour()') Downpour
-    .span4
-      a.red.large.radius.button(ng-click='clickMeasure()') Measure
-  .row.action-content.downpour(ng-show="currentStep == 'downpour'")
-    .span12
-      form
-        .drips(ng-repeat="drip in drips")
-          .row
-            .span1.offset2
-              input.span1(type="text", value="{{drip.delay}}", ng-model="drip.delay")
-            .span8
-              textarea(rows='8', ng-model='drip.message').span6
-                | {{drip.message}}
-        .row
-          .span4.offset5
-            .action-buttons.pull-right
-              a.signin.radius.button(ng-click='addDrip()') Drip More
-              | 
-              a.signin.radius.button(ng-click='saveDrips()') Save
+div(ng-include src="partials.addRule")

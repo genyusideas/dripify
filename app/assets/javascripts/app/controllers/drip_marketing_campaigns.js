@@ -2,10 +2,18 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
   $scope.currentUser = Auth.getCurrentUser();
   $scope.currentStep = 'sprinkle';
   $scope.drips = [];
+  $scope.newDrip = {
+    delay: '',
+    message: ''
+  };
   $scope.twitter_accounts = [];
   $scope.selected_account = '';
   $scope.selected_campaign = '';
   $scope.add_account_url = Config.api.fullUrl + "/auth/twitter?auth_token=" + SessionHandler.getToken();
+
+  $scope.partials = {
+    addRule: '/assets/app/views/client/modals/add_drip_rule.html'
+  }
 
   $scope.loadTwitterAccounts = function() {
     if ( $scope.currentUser ) {
@@ -42,12 +50,8 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
             },
             function( rules ) {
               if ( rules && rules.length > 0 ) {
-                console.log("HELLO")
                 var k = 0;
                 for ( k = 0; k < rules.length; k++ ) {
-                  console.log("ID = " + rules[k].id);
-                  console.log("DELAY = " +rules[k].delay);
-                  console.log("MESSAGE = " + rules[k].message);
                   var drip = {
                     id: rules[k].id,
                     delay: rules[k].delay,
@@ -95,6 +99,17 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
       message: ''
     }
     $scope.drips.push( drip );
+  };
+
+  $scope.addNewDrip = function() {
+    var drip = {
+      delay: $scope.newDrip.delay,
+      message: $scope.newDrip.message
+    }
+    $scope.newDrip.delay = '';
+    $scope.newDrip.message = '';
+    $scope.drips.push( drip );
+    $scope.saveDrips();
   };
 
   $scope.saveDrips = function() {
