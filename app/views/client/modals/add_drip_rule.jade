@@ -1,11 +1,11 @@
-#addRuleModal.modal.hide.fade
+#editRuleModal.modal.hide.fade
   .modal-header
     button.close(type="button", data-dismiss="modal", aria-hidden="true")
       | &times;
     h3 Modal header
   .modal-body
-    input#new-delay.span1(type="text", ng-model="newDrip.delay")
-    textarea#new-message(rows='8', ng-model="newDrip.message").span6
+    input#new-delay.span1(type="text", ng-model="drips[edit_id].delay")
+    textarea#new-message(rows='8', ng-model="drips[edit_id].message").span6
   .modal-footer
     a.btn(data-dismiss="modal", aria-hidden="true") Close
-    a.btn.btn-primary(ng-click='addNewDrip()', data-dismiss="modal", aria-hidden="true") Save changes
+    a.btn.btn-primary(ng-click='saveDrips()', data-dismiss="modal", aria-hidden="true") Save changes

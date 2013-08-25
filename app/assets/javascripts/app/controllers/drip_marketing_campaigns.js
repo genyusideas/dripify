@@ -6,6 +6,7 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
     delay: '',
     message: ''
   };
+  $scope.edit_id = 0;
   $scope.twitter_accounts = [];
   $scope.selected_account = '';
   $scope.selected_campaign = '';
@@ -80,6 +81,15 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
       }
     );
   }
+  
+  $scope.launchEditDripModal = function(rule_id) {
+    for ( var i = 0; i < $scope.drips.length; i++ ) {
+      if ( $scope.drips[i].id == rule_id) {
+        $scope.edit_id = i;
+      }
+    }
+    $('#editRuleModal').modal('show');
+  };
 
   $scope.clickSprinkle = function() {
     $scope.currentStep = 'sprinkle';
