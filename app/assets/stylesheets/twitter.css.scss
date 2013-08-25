@@ -1,0 +1,26 @@
+.panel-heading.twitter-accounts {
+  border-bottom: none;
+}
+.panel-body.twitter-accounts {
+  padding: 0;
+  .accounts-column {
+    border-right: 1px solid #ddd;
+    width: 250px;
+    .list-group {
+      border-radius: 0;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 0;
+      box-shadow: none;
+      border: none;
+      a {
+        &.list-group-item {
+          border: none;
+          &:first-child {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+          }
+        }
+      }
+    }
+  }
+}

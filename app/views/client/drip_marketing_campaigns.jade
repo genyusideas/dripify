@@ -1,35 +1,23 @@
 .typo_top
-  .panel.panel-default
-    .panel-heading Panel heading
-    .panel-body
-      .list-group
-        a.list-group-item.active(href="#")
-          h4.list-group-item-heading List group item heading
-          p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-        a.list-group-item(href="#")
-          h4.list-group-item-heading List group item heading
-          p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-        a.list-group-item(href="#")
-          h4.list-group-item-heading List group item heading
-          p.list-group-item-text Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-
-
-
-
-
-.typo_top.account-strip
   .container
     .row
       .span12
-        ul.twitter-accounts
-          span.accounts(ng-repeat="twitter_account in twitter_accounts")
-            li.button(ng-class="{true: 'selected', false: 'unselected'}[twitter_account.name==selected_account.name] ",
-              ng-click="selectTwitterAccount( twitter_account.id )")
-              img.profile(ng-src='{{twitter_account.profile_image}}')
-              a {{twitter_account.name}}
-          li.button.add-account
-            i.icon-twitter.icon-2x
-            a(href="{{add_account_url}}", target="_blank") Add Twitter Account
+        .panel.panel-default
+          .panel-heading.twitter-accounts Panel heading
+          .panel-body.twitter-accounts
+            .accounts-column
+              .list-group
+                span(ng-repeat="twitter_account in twitter_accounts")
+                  a.list-group-item(ng-class="{true: 'active', false: ''}[twitter_account.name==selected_account.name] ", href="#")
+                    img.profile(ng-src='{{twitter_account.profile_image}}')
+                    h4 {{twitter_account.name}}
+                a.list-group-item(href="{{add_account_url}}", target="_blank")
+                  h4 Add Twitter Account
+
+
+
+
+
 .container.page-body.sec_3(ng-hide="selected_account==''")
   .row.action-selector
     .span4
