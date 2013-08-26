@@ -4,7 +4,11 @@
       .span12
         .panel.panel-default.twitter
           .panel-heading.twitter-accounts
-            a.btn.btn-primary(href="{{add_account_url}}", target="_blank") Add Twitter Account
+            .add-twitter
+              a.btn.btn-primary(href="{{add_account_url}}", target="_blank") Add Twitter Account
+            .add-message
+              button.btn.btn-primary(type="button", data-toggle="modal", data-target="#addDripModal")
+                | Add new message
           .panel-body.twitter-accounts
             .accounts-column
               .list-group
@@ -14,9 +18,6 @@
                     h4 {{twitter_account.name}}
             .content-column
               .main-content(ng-hide="selected_account==''")
-                .add-message
-                  button.btn.btn-primary(type="button", data-toggle="modal", data-target="#addDripModal")
-                    | Add new message
                 h3 Auto-responders 
                 .drips
                   .header

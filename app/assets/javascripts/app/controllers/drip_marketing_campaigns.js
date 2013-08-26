@@ -13,7 +13,8 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
   $scope.add_account_url = Config.api.fullUrl + "/auth/twitter?auth_token=" + SessionHandler.getToken();
 
   $scope.partials = {
-    addRule: '/assets/app/views/client/modals/add_drip_rule.html'
+    addRule: '/assets/app/views/client/modals/add_drip_rule.html',
+    editRule: '/assets/app/views/client/modals/edit_drip_rule.html'
   }
 
   $scope.loadTwitterAccounts = function() {

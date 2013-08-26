@@ -2,11 +2,24 @@
   min-height: 300px;
   .panel-heading.twitter-accounts {
     border-bottom: none;
+    padding: 0px 15px;
+    .add-twitter {
+      display: inline-block;
+      width: 235px;
+      border-right: 1px solid #ddd;
+      position: relative;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .add-message {
+      display: inline-block;
+      padding: 10px;
+    }
   }
   .panel-body.twitter-accounts {
     padding: 0;
     .accounts-column {
-      border-right: 1px solid #ddd;
       float: left;
       min-height: 250px;
       width: 250px;
@@ -33,7 +46,8 @@
       }
     }
     .content-column {
-      margin-left: 251px;
+      border-left: 1px solid #ddd;
+      margin-left: 250px;
       .main-content {
         h3 {
           padding-left: 10px;
