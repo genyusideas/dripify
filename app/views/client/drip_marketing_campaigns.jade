@@ -30,6 +30,7 @@
                       .message {{drip.message}}
                       .controls
                         a.btn.drip-edit(ng-click="launchEditDripModal( drip.id )") Edit
-                        a.btn.btn-danger.drip-delete(href="#") Delete
+                        a.btn.btn-danger.drip-delete(ng-click="triggerDelete( drip.id )") Delete
 div(ng-include src="partials.addRule")
 div(ng-include src="partials.editRule")
+div(ng-include src="partials.deleteRule")

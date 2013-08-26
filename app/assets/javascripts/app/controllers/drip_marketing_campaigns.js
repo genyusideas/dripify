@@ -7,6 +7,7 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
     message: ''
   };
   $scope.edit_id = 0;
+  $scope.delete_id = 0;
   $scope.twitter_accounts = [];
   $scope.selected_account = '';
   $scope.selected_campaign = '';
@@ -14,7 +15,8 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
 
   $scope.partials = {
     addRule: '/assets/app/views/client/modals/add_drip_rule.html',
-    editRule: '/assets/app/views/client/modals/edit_drip_rule.html'
+    editRule: '/assets/app/views/client/modals/edit_drip_rule.html',
+    deleteRule: '/assets/app/views/client/modals/delete_drip_rule.html'
   }
 
   $scope.loadTwitterAccounts = function() {
@@ -34,6 +36,31 @@ function DripMarketingCampaignsController($scope, $rootScope, $location, $http, 
           $scope.selected_account = $scope.twitter_accounts[0];
       });
     }
+  };
+
+  $scope.triggerDelete = function( rule_id ) {
+    $scope.delete_id = rule_id;
+    $('#deleteRuleModal').modal('show');
+  };
+
+  $scope.delete_rule = function( rule_id ) {
+    DripMarketingRule.delete(
+      {
+        slug: $scope.currentUser.id,
+        twitter_id: $scope.selected_account.id,
+        drip_marketing_campaign_id: $scope.selected_campaign.id,
+        drip_marketing_rule_id: rule_id
+      },
+      function( data ) {
+        for (var i = 0; i < $scope.drips.length; i++) {
+          if (data.id == $scope.drips[i].id) {
+            console.log(i);
+            $scope.drips.splice(i, 1);
+            console.debug($scope.drips);
+          }
+        }
+      }
+    );
   };
 
   $scope.load_campaign = function( twitter_account ) {

@@ -46,6 +46,24 @@ class DripMarketingRulesController < ApplicationController
       render json: { error: "User not found" }, status: 403
     end
   end
+  
+  # DELETE /users/:user_id/twitter_accounts/:twitter_account_id/drip_marketing_campaigns/:drip_marketing_campaign_id/drip_marketing_rules/:id
+  def destroy
+    unless @owner.nil?
+      @drip_marketing_rule = @owner.drip_marketing_rules.find( params[:id] )
+      unless @drip_marketing_rule.nil?
+        if @drip_marketing_rule.destroy
+          render json: @drip_marketing_rule, status: 200
+        else
+          render json: { error: "Error deleting rule" }, status: 500
+        end
+      else
+        render json: { error: "Rule not found" }, status: 403
+      end
+    else
+      render json: { error: "User not found" }, status: 403 
+    end
+  end
 
   private
 

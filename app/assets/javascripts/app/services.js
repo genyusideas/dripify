@@ -105,10 +105,11 @@ angular.module('Drippio.services', ['ngResource', 'Drippio.config']).
       var resource = $resource(  Config.api.fullUrl + "/users/:slug/twitter_accounts/:twitter_id/drip_marketing_campaigns/:drip_marketing_campaign_id/drip_marketing_rules/:drip_marketing_rule_id",
         {},
         {
-          update: { method: "PUT" }
+          update: { method: "PUT" },
+          delete: { method: "DELETE" }
         }
       );
-      resource = SessionHandler.wrapActions( resource, ["query", "save", "update"] );
+      resource = SessionHandler.wrapActions( resource, ["query", "save", "update", "delete"] );
 
       return resource;
     }]
