@@ -9,4 +9,6 @@ class DripMarketingRule < ActiveRecord::Base
     less_than_or_equal_to: 365
    }
   validates :message, presence: true, length: { maximum: 10000 }
+
+  default_scope order('delay ASC')
 end
