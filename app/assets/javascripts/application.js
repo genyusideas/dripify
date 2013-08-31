@@ -16,4 +16,6 @@
 //= require angular-cookies
 //= require angular-resource
 //= require bootstrap
+//= require json2
+//= require mandrill
 //= require_tree .
