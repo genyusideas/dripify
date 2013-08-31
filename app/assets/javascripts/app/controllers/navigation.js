@@ -17,6 +17,7 @@ function NavigationController($scope, $rootScope, $location, $location, Auth, Se
   }, true);
 
   $scope.loggedOutNavItems = [
+    { href: "#/contact", linkText: "Contact Us"},
     { href: "#/plans", linkText: "Plans" },
     { href: "#", linkText: "Home" }
   ];
@@ -25,6 +26,7 @@ function NavigationController($scope, $rootScope, $location, $location, Auth, Se
 
   $scope.loggedInNavItems = [
     { href: "#/drip_marketing_campaigns", linkText: "Your Drips" },
+    { href: "#/contact", linkText: "Contact Us"},
     { href: "#", linkText: "Home" }
   ];
   $scope.loggedInAuthItem = 

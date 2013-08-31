@@ -57,6 +57,7 @@ angular.module('Drippio', ['Drippio.filters', 'Drippio.services', 'Drippio.direc
       when('/logout', { templateUrl: '/assets/app/views/client/logout.html', controller: 'LogoutController' }).
       when('/signup', { templateUrl: '/assets/app/views/client/signup.html', controller: 'SignupController' }).
       when('/plans', { templateUrl: '/assets/app/views/client/plans.html' }).
+      when('/contact', { templateUrl: '/assets/app/views/client/contact.html' }).
       when('/drip_marketing_campaigns', { 
         templateUrl: '/assets/app/views/client/drip_marketing_campaigns.html', 
         controller: 'DripMarketingCampaignsController' 
