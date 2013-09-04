@@ -25,4 +25,9 @@ FactoryGirl.define do
     delay                 1
     message               "Test message"
   end
+
+  factory :friend_relationship do
+    follower_id   { FactoryGirl.create( :twitter_account ).id }
+    followed_id   { FactoryGirl.create( :twitter_account ).id }
+  end
 end
