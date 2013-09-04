@@ -1,4 +1,7 @@
 .typo_top.contact-us
+  .container(ng-show="showSuccess")
+    .alert.alert-success.custom-alert
+      {{flashMessage}}
   .container
     .row
       .span4.offset4
@@ -6,9 +9,9 @@
         hr
         .contact_form
           form
-            input.span4(type="text", placeholder="Name")
-            input.span4(type="text", placeholder="Email")
-            input.span4(type="text", placeholder="Name")
-            textarea#textarea.input-xlarge.span4(placeholder="Message", rows="6")
-            a.medium.blue.button.radius(href="#") Send 
+            input.span4(type="text", placeholder="Name", ng-model="name")
+            input.span4(type="text", placeholder="Email", ng-model="email")
+            input.span4(type="text", placeholder="Subject", ng-model="subject")
+            textarea#textarea.input-xlarge.span4(placeholder="Message", rows="6", ng-model="message")
+            a.medium.blue.button.radius(ng-click='sendMessage()') Send
         
