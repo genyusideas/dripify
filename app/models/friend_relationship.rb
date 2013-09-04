@@ -3,6 +3,8 @@ class FriendRelationship < ActiveRecord::Base
 
   before_save :process_new
 
+  belongs_to :followed, class_name: "SocialMediaAccount", foreign_key: 'followed_id'
+
   validates :followed_id, presence: true
   validates :follower_id, presence: true
   
