@@ -27,7 +27,7 @@ FactoryGirl.define do
   end
 
   factory :friend_relationship do
-    follower_id   { FactoryGirl.create( :twitter_account ).id }
     followed_id   { FactoryGirl.create( :twitter_account ).id }
+    follower_id   { rand(1000) }
   end
 end

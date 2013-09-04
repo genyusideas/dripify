@@ -23,7 +23,7 @@ class TwitterAccount < SocialMediaAccount
     # Def stub this out, for now.
     follower_ids = []
     7.times do |n|
-      num = rand(10)
+      num = rand(10).to_a
       follower_ids.push(num) unless follower_ids.include?(num)
     end
     follower_ids

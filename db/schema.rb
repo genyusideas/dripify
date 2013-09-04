@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904012512) do
+ActiveRecord::Schema.define(:version => 20130904022716) do
 
   create_table "drip_marketing_campaigns", :force => true do |t|
     t.boolean  "active",                  :default => true
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20130904012512) do
 
   create_table "friend_relationships", :force => true do |t|
     t.integer  "followed_id"
-    t.integer  "follower_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "is_new",      :default => true
+    t.string   "follower_id"
   end
 
   create_table "social_media_accounts", :force => true do |t|

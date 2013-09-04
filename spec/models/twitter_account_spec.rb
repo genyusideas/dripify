@@ -103,19 +103,19 @@ describe TwitterAccount do
       relationship.followed_id.should == twitter.id
     end
     it "should include the new account as a follower" do
-      twitter.actual_followers.should == [relationship.follower_id]
+      twitter.actual_followers.should == [relationship.follower_id.to_s]
     end
     it "should include the new account as a new follower" do
-      twitter.new_followers.should == [relationship.follower_id]
+      twitter.new_followers.should == [relationship.follower_id.to_s]
     end
 
     describe "after processing the follower" do
       before { relationship.process_follower! }
       it "should include the new account as a follower" do
-        twitter.actual_followers.should == [relationship.follower_id]
+        twitter.actual_followers.should == [relationship.follower_id.to_s]
       end
       it "should not include the new account as a new follower" do
-        twitter.new_followers.should_not == [relationship.follower_id]
+        twitter.new_followers.should_not == [relationship.follower_id.to_s]
       end
     end
   end
