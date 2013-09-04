@@ -14,6 +14,7 @@ describe TwitterAccount do
   it { should respond_to( :inactive_drip_marketing_campaigns ) }
   it { should respond_to( :actual_followers ) }
   it { should respond_to( :new_followers ) }
+  it { should respond_to( :update_followers! ) }
   it { should be_valid }
 
   describe "when handle is not set" do
