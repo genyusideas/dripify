@@ -30,4 +30,12 @@ FactoryGirl.define do
     followed_id   { FactoryGirl.create( :twitter_account ).id }
     follower_id   { rand(1000) }
   end
+  
+  factory :twitter_message do
+    twitter_account_id    { FactoryGirl.create( :twitter_account ).id }
+    recipient_id          { rand(1000) }
+    send_date             { DateTime.new(2014, 1, 1) }
+    status                { "pending"}
+    message               { "Fake message" }
+  end
 end

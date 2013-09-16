@@ -1,6 +1,10 @@
 class TwitterAccount < SocialMediaAccount
   has_many :friend_relationships, foreign_key: "followed_id"
-  
+  has_many :messages, class_name: "TwitterMessage"
+  has_many :pending_messages, class_name: "TwitterMessage", conditions: "twitter_messages.status = 'pending'"
+  has_many :error_messages, class_name: "TwitterMessage", conditions: "twitter_messages.status = 'error'"
+  has_many :sent_messages, class_name: "TwitterMessage", conditions: "twitter_messages.status = 'sent'"
+
   def actual_followers
     self.friend_relationships.map &:follower_id
   end

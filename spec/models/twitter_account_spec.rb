@@ -15,6 +15,10 @@ describe TwitterAccount do
   it { should respond_to( :actual_followers ) }
   it { should respond_to( :new_followers ) }
   it { should respond_to( :update_followers! ) }
+  it { should respond_to( :messages) }
+  it { should respond_to( :pending_messages ) }
+  it { should respond_to( :sent_messages ) }
+  it { should respond_to( :error_messages ) }
   it { should be_valid }
 
   describe "when handle is not set" do
@@ -117,6 +121,25 @@ describe TwitterAccount do
       it "should not include the new account as a new follower" do
         twitter.new_followers.should_not == [relationship.follower_id.to_s]
       end
+    end
+  end
+  
+  describe "when adding messages" do
+    let!(:pending) { FactoryGirl.create( :twitter_message, twitter_account_id: twitter.id ) }
+    let!(:sent) { FactoryGirl.create( :twitter_message, twitter_account_id: twitter.id, status: "sent" ) }
+    let!(:error) { FactoryGirl.create( :twitter_message, twitter_account_id: twitter.id, status: "error" ) }
+
+    it "should have the pending message" do
+      twitter.messages.should == [pending, sent, error]
+      twitter.pending_messages.should == [pending]
+    end
+
+    it "should have the sent message" do
+      twitter.sent_messages.should == [sent]
+    end
+
+    it "should have the error message" do
+      twitter.error_messages.should == [error]
     end
   end
 end
